@@ -388,6 +388,7 @@ if [ ! -e build ]; then
     mkdir build
 fi
 
+if [ ${ICESTORM_EN} != 0 ]; then
 if [ ! -e ${STAMPS}/${ICESTORM}.build ]; then
     unpack ${ICESTORM}
     cd ${ICESTORM}
@@ -399,7 +400,9 @@ if [ ! -e ${STAMPS}/${ICESTORM}.build ]; then
     touch ${STAMPS}/${ICESTORM}.build
     rm -rf ${ICESTORM}
 fi
+fi
 
+if [ ${PRJTRELLIS_EN} != 0 ]; then
 if [ ! -e ${STAMPS}/${PRJTRELLIS}.build ]; then
     unpack ${PRJTRELLIS}
     cd ${PRJTRELLIS}/libtrellis
@@ -417,7 +420,9 @@ if [ ! -e ${STAMPS}/${PRJTRELLIS}.build ]; then
     touch ${STAMPS}/${PRJTRELLIS}.build
     rm -rf build/* ${PRJTRELLIS}
 fi
+fi
 
+if [ ${ARACHNEPNR_EN} != 0 ]; then
 if [ ! -e ${STAMPS}/${ARACHNEPNR}.build ]; then
     unpack ${ARACHNEPNR}
     cd ${ARACHNEPNR}
@@ -429,13 +434,21 @@ if [ ! -e ${STAMPS}/${ARACHNEPNR}.build ]; then
     touch ${STAMPS}/${ARACHNEPNR}.build
     rm -rf ${ARACHNEPNR}
 fi
+fi
 
+if [ ${NEXTPNR_ICE40_EN} != 0 ] || [ ${NEXTPNR_ECP5_EN} != 0 ]; then
 if [ ! -e ${STAMPS}/${NEXTPNR}.build ]; then
     unpack ${NEXTPNR}
     cd build
     log "Configuring ${NEXTPNR}"
     CMAKE_PREFIX_PATH=${QT5_PREFIX:-${QT5_PREFIX}/lib/cmake/Qt5}
-    cmake -DARCH="ice40;ecp5" -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    if [ ${NEXTPNR_ICE40_EN} != 0 ]; then
+      NEXTPNR_ARCH="ice40;"
+    fi
+    if [ ${NEXTPNR_ECP5_EN} != 0 ]; then
+      NEXTPNR_ARCH="${NEXTPNR_ARCH}ecp5"
+    fi
+    cmake -DARCH="${NEXTPNR_ARCH}" -DCMAKE_INSTALL_PREFIX=${PREFIX} \
         -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH} \
         -DBUILD_GUI=${NEXTPNR_BUILD_GUI} \
         -DTRELLIS_ROOT=${PREFIX}/share/trellis \
@@ -448,7 +461,9 @@ if [ ! -e ${STAMPS}/${NEXTPNR}.build ]; then
     touch ${STAMPS}/${NEXTPNR}.build
     rm -rf build/* ${NEXTPNR}
 fi
+fi
 
+if [ ${YOSYS_EN} != 0 ]; then
 if [ ! -e ${STAMPS}/${YOSYS}.build ]; then
     unpack ${YOSYS}
     if [ "x${YOSYS_GIT}" == "x" ]; then
@@ -468,7 +483,9 @@ if [ ! -e ${STAMPS}/${YOSYS}.build ]; then
         rm -rf ${YOSYS}
     fi
 fi
+fi
 
+if [ ${IVERILOG_EN} != 0 ]; then
 if [ ! -e ${STAMPS}/${IVERILOG}.build ]; then
     unpack ${IVERILOG}
     cd ${IVERILOG}
@@ -485,3 +502,5 @@ if [ ! -e ${STAMPS}/${IVERILOG}.build ]; then
     touch ${STAMPS}/${IVERILOG}.build
     rm -rf build/* ${IVERILOG}
 fi
+fi
+
