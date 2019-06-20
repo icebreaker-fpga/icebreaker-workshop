@@ -1,3 +1,4 @@
+// Project entry point
 module top (
 	input  CLK,
 	input BTN_N, BTN1, BTN2, BTN3,
@@ -5,29 +6,37 @@ module top (
 	output P1A1, P1A2, P1A3, P1A4, P1A7, P1A8, P1A9, P1A10,
 	output P1B1, P1B2, P1B3, P1B4, P1B7, P1B8, P1B9, P1B10
 );
+	// 7 segment control line busses
 	wire [7:0] seven_segment_top;
 	wire [7:0] seven_segment_bot;
 
-	reg [15:0] display_value = 0;
-	wire [15:0] display_value_inc;
-
-	reg [15:0] lap_value = 0;
-	reg [7:0] lap_timeout = 0;
-
+	// Assign 7 segment control line bus to Pmod pins
 	assign { P1A10, P1A9, P1A8, P1A7, P1A4, P1A3, P1A2, P1A1 } = seven_segment_top;
 	assign { P1B10, P1B9, P1B8, P1B7, P1B4, P1B3, P1B2, P1B1 } = seven_segment_bot;
 
+	// Display value register and increment bus
+	reg [15:0] display_value = 0;
+	wire [15:0] display_value_inc;
+
+	// Lap registers
+	reg [15:0] lap_value = 0;
+	reg [7:0] lap_timeout = 0;
+
+	// Clock divider and pulse registers
 	reg [20:0] clkdiv = 0;
 	reg clkdiv_pulse = 0;
 	reg running = 0;
 
+	// Combinatorial logic
 	assign LED1 = BTN1 && BTN2;
 	assign LED2 = BTN1 && BTN3;
 	assign LED3 = BTN2 && BTN3;
 	assign LED4 = !BTN_N;
 	assign LED5 = !BTN_N || BTN1 || BTN2 || BTN3;
 
+	// Synchronous logic
 	always @(posedge CLK) begin
+		// Clock divider pulse generator
 		if (clkdiv == 120000) begin
 			clkdiv <= 0;
 			clkdiv_pulse <= 1;
@@ -36,14 +45,17 @@ module top (
 			clkdiv_pulse <= 0;
 		end
 
+		// Lap timeout counter
 		if (lap_timeout) begin
 			lap_timeout <= lap_timeout - 1;
 		end
 
+		// Timer counter
 		if (clkdiv_pulse && running) begin
 			display_value <= display_value_inc;
 		end
 
+		// Button controls
 		if (!BTN_N) begin
 			display_value <= 0;
 			running <= 0;
@@ -63,24 +75,29 @@ module top (
 		end
 	end
 
+	// BCD counter
+	bcd16_increment bot_inc (
+		.din(display_value),
+		.dout(display_value_inc)
+	);
+
+	// 7 segment display control top Pmod 1A
 	seven_seg_ctrl seven_segment_ctrl_top (
 		.CLK(CLK),
 		.din(lap_timeout ? lap_value[15:8] : display_value[15:8]),
 		.dout(seven_segment_top)
 	);
 
+	// 7 segment display control bottom Pmod 1B
 	seven_seg_ctrl seven_segment_ctrl_bot (
 		.CLK(CLK),
 		.din(lap_timeout ? lap_value[7:0] : display_value[7:0]),
 		.dout(seven_segment_bot)
 	);
 
-	bcd16_increment bot_inc (
-		.din(display_value),
-		.dout(display_value_inc)
-	);
 endmodule
 
+// BCD (Binary Coded Decimal) counter
 module bcd16_increment (
 	input [15:0] din,
 	output reg [15:0] dout
@@ -101,6 +118,10 @@ module bcd16_increment (
 	end
 endmodule
 
+// Seven segment controller
+// Switches quickly between the two parts of the display
+// to create the illusion of both halfs being illuminated
+// at the same time.
 module seven_seg_ctrl (
 	input CLK,
 	input [7:0] din,
@@ -140,6 +161,7 @@ module seven_seg_ctrl (
 	end
 endmodule
 
+// Convert 4bit numbers to 7 segments
 module seven_seg_hex (
 	input [3:0] din,
 	output reg [6:0] dout
