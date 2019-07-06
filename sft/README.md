@@ -82,7 +82,7 @@ documentation](http://www.clifford.at/icestorm/notes_osx.html).
 * `wget https://github.com/esden/summon-fpga-tools/zipball/master; unzip master`
 * `cd summon-fpga-tools`
 * `./summon-fpga-tools.sh`
-* `export PATH=~/sft/bin`
+* `export PATH=~/sft/bin:$PATH`
 * Profit
 
 ## Command line options
