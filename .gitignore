@@ -1,0 +1,7 @@
+._*
+*.yslog
+*.bin
+*.json
+*.asc
+*.nplog
+*.rpt

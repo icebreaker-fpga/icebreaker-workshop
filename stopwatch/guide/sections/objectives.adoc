@@ -1,0 +1,6 @@
+.Course Objectives
+This lab manual is a workbook that accompanies the iCEBreaker FPGA stopwatch workshop.
+
+Our objective is for attendees to get as much hands-on time with hardware as possible during our classes. Lectures serve as introductions to topics, but the walk-throughs and challenges in this manual will lead you to deeper understanding and higher retention of important information. We recommend recording as much as possible in this manual, as it may become a resource for your future hardware hacking adventures.
+
+This training is based on the SecuringHardware.com model developed by Joe FitzPatrick. If you enjoy this wokrshop make sure to check out the list of workshops SecuringHardware.com offer. This workshop was developed by 1BitSquared for the iCEBreaker FPGA development board. We also develop other workshops. You can find the WTFpga and iCEBreaker workshops on GitHub at https://github.com/icebreaker-fpga.
