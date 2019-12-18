@@ -205,7 +205,7 @@ Also change the RESET functionality so that `running` and `display_value` is res
 
 === Add lap time measurement
 
-Finally let's also add lap time measurement: pressing the center button on the board should display the current time for two seconds while we keep counting in the background.
+Finally let's also add lap time measurement: pressing the center button `BTN2` on the board should display the current time for two seconds while we keep counting in the background.
 
 For this, we need to add a 8-bit register `lap_value` and an 5-bit register `lap_timeout`.
 
