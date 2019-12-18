@@ -1,3 +1,6 @@
+// Cause yosys to throw an error when we implicitly declare nets
+`default_nettype none
+
 // Project entry point
 module top (
 	input  CLK,

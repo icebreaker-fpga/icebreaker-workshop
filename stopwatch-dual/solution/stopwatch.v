@@ -1,3 +1,6 @@
+// Cause yosys to throw an error when we implicitly declare nets
+`default_nettype none
+
 // Project entry point
 module top (
 	input  CLK,
@@ -46,7 +49,7 @@ module top (
 		end
 
 		// Lap timeout counter
-		if (lap_timeout) begin
+		if (clkdiv_pulse && lap_timeout) begin
 			lap_timeout <= lap_timeout - 1;
 		end
 
