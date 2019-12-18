@@ -9,7 +9,7 @@ module top (
 	wire [7:0] seven_segment;
 
 	// Assign 7 segment control line bus to Pmod pins
-	assign { P1A10, P1A9, P1A8, P1A7, P1A4, P1A3, P1A2, P1A1 } = seven_segment_top;
+	assign { P1A10, P1A9, P1A8, P1A7, P1A4, P1A3, P1A2, P1A1 } = seven_segment;
 
 	// Display value register and increment bus
 	reg [7:0] display_value = 0;
@@ -43,7 +43,7 @@ module top (
 		end
 
 		// Lap timeout counter
-		if (lap_timeout) begin
+		if (clkdiv_pulse && lap_timeout) begin
 			lap_timeout <= lap_timeout - 1;
 		end
 
@@ -56,6 +56,7 @@ module top (
 		if (!BTN_N) begin
 			display_value <= 0;
 			running <= 0;
+			lap_timeout <= 0;
 		end
 
 		if (BTN3) begin
@@ -80,7 +81,7 @@ module top (
 
 	// 7 segment display control
 	seven_seg_ctrl seven_segment_ctrl (
-		.clk(CLK),
+		.CLK(CLK),
 		.din(lap_timeout ? lap_value[7:0] : display_value[7:0]),
 		.dout(seven_segment)
 	);
