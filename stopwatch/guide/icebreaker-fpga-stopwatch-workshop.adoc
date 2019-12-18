@@ -201,7 +201,7 @@ Add a (1 bit) `running` register (initialized to zero), and change the code that
 
 Add if-statements to the `always @(posedge CLK)` block in the top module that will set `running` to `1` when `BTN3` is pressed, and reset running to `0` when `BTN1` is pressed. Now these two buttons function as START and STOP buttons for the stop watch.
 
-Also change the RESET functionality so that `running` is reset to `0` when the "user button" `BTN_N` is pressed.
+Also change the RESET functionality so that `running` and `display_value` is reset to `0` when the "user button" `BTN_N` is pressed.
 
 === Add lap time measurement
 
@@ -219,6 +219,7 @@ NOTE: The syntax `x = a ? b : c` can be used to assign value `b` to `x` when `a`
 
 You’ve now completed a basic stop watch, that uses most of the core concepts used to design nearly all silicon devices in use today. If time permits, here are a few additional things you can explore or try with this board:
 
+* Can you change the design so that the digits flash when `lap_value` is being displayed?
 * Can you display something other than numbers?
 * Examine the `icebreaker.pcf` file. This contains all the mappings of the FPGA’s pins to the names you use in your code.
 * Add additional math functions to your stop watch, like switching to displaying minutes and seconds when the seconds counter rolls over.
