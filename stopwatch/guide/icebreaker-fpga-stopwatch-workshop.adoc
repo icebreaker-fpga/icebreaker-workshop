@@ -30,7 +30,7 @@ include::sections/objectives.adoc[]
 
 == Introduction
 
-Welcome to the workshop! This is a hands-on crash-course in verilog and FPGAs in general. It is self-guided and self-paced. Instructors and assistants are here to answer questions, not drone on with text-laden slides.
+Welcome to the workshop! This is a hands-on crash-course in Verilog and FPGAs in general. It is self-guided and self-paced. Instructors and assistants are here to answer questions, not drone on with text-laden slides.
 
 While microcontrollers run code, FPGAs let you define wires that connect things together, as well as logic that continuously combines and manipulates the values carried by those wires. Verilog is a hardware description language that lets you define how the FPGA should work.
 
@@ -120,7 +120,7 @@ Now that we know how to use the tools to configure our FPGA, let’s start by ex
 .. Next are `wire` definitions. Wires are used to directly connect inputs to one or more outputs.
 .. Next are parallel `assign` statements. All of these assignments are always happening, concurrently.
 .. Next are always blocks. These are blocks of statements that happen sequentially, and are triggered by the _sensitivity list_ contained in the following `@( )`.
-.. Finally we can instantiate modules. There is one already instantiated and drive the 7-segment display.
+.. Finally we can instantiate modules. There is one already instantiated that drives the 7-segment display.
 . Now let’s try and map our board’s functionality to the Verilog that makes it happen.
 .. What happened when you pressed buttons?
 .. Can you find the pushbuttons in the `module` definition? What are they called?
@@ -197,7 +197,7 @@ Add an if-statement to the `always @(posedge CLK)` block in the top module that 
 
 While there is so much more to combinational logic than we actually touched on, let’s move on to a new concept - registers. Assignments are excellent at connecting blocks together, but they’re more similar to passing parameters to a function than actual variables. Registers allow you to capture and store data for repeated or later use.
 
-Add a (1 bit) `running` register (initialized to zero), and change the code that increments `display_value` to only apply the increment when running is `1`.
+Add a (1 bit) `running` register (initialized to zero), and change the code that increments `display_value` so that it only applies the increment when running is `1`.
 
 Add if-statements to the `always @(posedge CLK)` block in the top module that will set `running` to `1` when `BTN3` is pressed, and reset running to `0` when `BTN1` is pressed. Now these two buttons function as START and STOP buttons for the stop watch.
 
@@ -217,7 +217,7 @@ NOTE: The syntax `x = a ? b : c` can be used to assign value `b` to `x` when `a`
 
 === Exploring More
 
-You’ve now completed a basic stop watch, that uses most of the core concepts used to design nearly all silicon devices in use today. If time permits, here are a few additional things you can explore or try with this board:
+You’ve now completed a basic stop watch! While simple, this design demonstrates most of the core concepts needed to design almost all silicon devices in use today. If time permits, here are a few additional things you can explore or try with this board:
 
 * Can you change the design so that the digits flash when `lap_value` is being displayed?
 * Can you display something other than numbers?
@@ -243,7 +243,7 @@ You can find more information about the iCEBreaker at 1BitSquared:
 | https://1bitsquared.com/products/icebreaker
 |====
 
-If you continue playing with your iCEBreaker make sure to share with us what you built, and ask questions. You can find us on Gitter, in the iCEBreaker channel:
+If you continue playing with your iCEBreaker make sure to share with us what you built, and ask questions. You can find us on the 1BitSquared Discord server:
 
 [.text.center]
 [%autowidth,cols="^",frame="none",grid="none"]
