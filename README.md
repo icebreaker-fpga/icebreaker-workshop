@@ -4,6 +4,13 @@ Welcome to the iCEBreaker FPGA workshop repository.
 
 This workshop is self directed and can be done on your own time.
 
+
+## iCEBreaker workshop sessions
+
+* [Crowd Supply Teardown conference](https://www.crowdsupply.com/teardown/portland-2019) in Portland Oregon 21st-23rd June 2019. 
+* [Chaos Communication Congress 36C3](https://events.ccc.de/congress/2019/wiki/index.php/Session:ICEBreaker_FPGA_Workshop)
+in Leipzig Germany 27th-30th December 2019.
+
 ## Supplies needed
 
 * Computer
@@ -11,6 +18,13 @@ This workshop is self directed and can be done on your own time.
 * [iCEBreaker](https://1bitsquared.com/products/icebreaker)
 * [iCEBreaker 7Segment display](https://1bitsquared.com/products/pmod-7-segment-display)
   * You might need one or two displays depending on the workshop you choose.
+
+**Note:** In most cases we provide the iCEBreaker hardware for the duration of the
+workshop. You will have to return it after the workshop is over. Make sure to
+read the specific workshop instructions. We usually also have extra hardware
+you can purchase so you can keep hacking on it and take home. Also refer to the
+workshop instructions of how to get the hardware or ping [@esden on
+twitter](https://twitter.com/esden).
 
 ## Toolchain installation
 
