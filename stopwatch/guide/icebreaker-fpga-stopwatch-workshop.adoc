@@ -220,6 +220,7 @@ NOTE: The syntax `x = a ? b : c` can be used to assign value `b` to `x` when `a`
 You’ve now completed a basic stop watch! While simple, this design demonstrates most of the core concepts needed to design almost all silicon devices in use today. If time permits, here are a few additional things you can explore or try with this board:
 
 * Can you change the design so that the digits flash when `lap_value` is being displayed?
+* Can you make BTN3 toggle between START/STOP on each press?
 * Can you display something other than numbers?
 * Examine the `icebreaker.pcf` file. This contains all the mappings of the FPGA’s pins to the names you use in your code.
 * Add additional math functions to your stop watch, like switching to displaying minutes and seconds when the seconds counter rolls over.
