@@ -93,7 +93,7 @@ You probably already have it on your drive as you are reading this, but for good
 
 ```
 git clone https://github.com/icebreaker-fpga/icebreaker-workshop.git
-cd icebreaker-workshop/advanced
+cd icebreaker-workshop/stopwatch
 ```
 
 == Your first digital design
