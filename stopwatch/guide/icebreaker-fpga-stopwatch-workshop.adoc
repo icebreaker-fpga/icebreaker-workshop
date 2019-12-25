@@ -174,7 +174,7 @@ image::7segment-segments.png[]
 |====
 | `4’`			| when our 4 bits
 | `h1:`			| equal hex 0x01
-| `dout =`		| assign a value to segout
+| `dout =`		| assign a value to dout
 | `7’b`			| of seven bit
 | `0000110;`	| leds 1 and 2 illuminated
 |====
