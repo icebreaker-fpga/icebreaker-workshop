@@ -1,6 +1,6 @@
 = iCEBreaker FPGA Stopwatch Workshop
 Piotr Esden-Tempski, Sylvain Munaut, Mike Walters and friends
-v2.0, 17 Dec 2019
+v2.0, 27 Dec 2019
 :doctype: book
 :imagesdir: images/
 //:pdf-page-size: Executive
