@@ -74,4 +74,4 @@ reload the udev rules.
 
 **Windows**
 
-You will need the [zadig drivers](https://zadig.akeo.ie/) and libusb1.
+You will need the [zadig drivers](https://zadig.akeo.ie/), choose icebreaker interface 0 and then choose winusb.
