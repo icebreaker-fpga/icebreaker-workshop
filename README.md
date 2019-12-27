@@ -56,6 +56,8 @@ server](https://1bitsquared.com/pages/chat)!
 
 **I am running iceprog and the programmer is not being detected**
 
+**Linux**
+
 * Check if the device is being detected by the kernel with 'lsusb' it will
   either show up as a Future Electronics device or the name of the programmer
   vendor.
@@ -69,3 +71,7 @@ ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0660", GROUP="plugdev",
 ```
 After adding that file you need to at least replug the programmer or even
 reload the udev rules.
+
+**Windows**
+
+You will need the [zadig drivers](https://zadig.akeo.ie/) and libusb1.
