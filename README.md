@@ -51,3 +51,21 @@ here.
 If you are doing the workshop on your own time and you want to share your
 experiances or want to ask a question, [join our Discord
 server](https://1bitsquared.com/pages/chat)!
+
+## Troubleshooting
+
+**I am running iceprog and the programmer is not being detected**
+
+* Check if the device is being detected by the kernel with 'lsusb' it will
+  either show up as a Future Electronics device or the name of the programmer
+  vendor.
+* If the device is being detected by the kernel you might not have permissions
+  to access the device. If you run `sudo iceprog ...` and the device is
+  decected you can give yourself permissions by creating a udev file at:
+  `/etc/udev/rules.d/53-icebreaker-ftdi.rules` and adding the following line in
+  that file:
+```
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+```
+After adding that file you need to at least replug the programmer or even
+reload the udev rules.
