@@ -87,6 +87,30 @@ Follow the instructions for the https://github.com/im-tomu/fomu-toolchain[fomu-t
 
 If you are having trouble with the setup due to internet connectivity the helpers might have a USB stick you can use to copy the toolchain and the workshop materials to your laptop. You will need to unzip the toolchain archive and add the `bin` directory to your `PATH` environment variable.
 
+=== Toolchain Troubleshooting
+
+**I am running iceprog and the programmer is not being detected**
+
+**Linux**
+
+* Check if the device is being detected by the kernel with 'lsusb' it will
+  either show up as a Future Electronics device or the name of the programmer
+  vendor.
+* If the device is being detected by the kernel you might not have permissions
+  to access the device. If you run `sudo iceprog ...` and the device is
+  decected you can give yourself permissions by creating a udev file at:
+  `/etc/udev/rules.d/53-icebreaker-ftdi.rules` and adding the following line in
+  that file:
+```
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+```
+After adding that file you need to at least replug the programmer or even
+reload the udev rules.
+
+**Windows**
+
+You will need the https://zadig.akeo.ie[zadig drivers], choose icebreaker interface 0 and then choose winusb.
+
 === Get the workshop repository
 
 You probably already have it on your drive as you are reading this, but for good measure here is how you obtain the workshop git repository:
