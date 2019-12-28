@@ -74,4 +74,4 @@ reload the udev rules.
 
 **Windows**
 
-You will need the [zadig drivers](https://zadig.akeo.ie/), choose icebreaker interface 0 and then choose winusb.
+You will need the [zadig drivers](https://zadig.akeo.ie), choose icebreaker interface 0 and then choose winusb. If the icebreaker interface does not show up, check that "List all devices" is ticked under "Options".
