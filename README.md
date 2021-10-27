@@ -11,6 +11,8 @@ This workshop is self directed and can be done on your own time.
 * [Chaos Communication Congress 36C3](https://events.ccc.de/congress/2019/wiki/index.php/Session:ICEBreaker_FPGA_Workshop)
 in Leipzig Germany 27th-30th December 2019.
 
+The most up to date version of the workshop can be found on in the stopwatch subdirectory of [this repository](https://github.com/icebreaker-fpga/icebreaker-workshop/tree/master/stopwatch).
+
 ## Supplies needed
 
 * Computer

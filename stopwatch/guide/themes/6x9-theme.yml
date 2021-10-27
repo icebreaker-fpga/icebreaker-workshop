@@ -99,7 +99,7 @@ heading:
 title_page:
   align: right
   background:
-    image: cover.png
+    #image: cover.png
   logo:
     bottom: 10%
   title:

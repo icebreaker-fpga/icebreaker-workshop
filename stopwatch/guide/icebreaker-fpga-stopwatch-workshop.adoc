@@ -1,6 +1,6 @@
 = iCEBreaker FPGA Stopwatch Workshop
 Piotr Esden-Tempski, Sylvain Munaut, Mike Walters and friends
-v2.0, 27 Dec 2019
+v2.1, 27 October 2021
 :doctype: book
 :imagesdir: images/
 //:pdf-page-size: Executive
@@ -83,9 +83,9 @@ image::icebreaker-v10b-with-7seg.jpg[,400,]
 
 If you did not already you will need to install the FPGA toolchain first.
 
-Follow the instructions for the https://github.com/im-tomu/fomu-toolchain[fomu-toolchain].
+Follow the instructions for the https://github.com/YosysHQ/oss-cad-suite-build/#installation[OSS CAD Suite].
 
-If you are having trouble with the setup due to internet connectivity the helpers might have a USB stick you can use to copy the toolchain and the workshop materials to your laptop. You will need to unzip the toolchain archive and add the `bin` directory to your `PATH` environment variable.
+If you are having trouble with the setup due to internet connectivity the helpers might have a USB stick you can use to copy the toolchain and the workshop materials to your laptop. You will need to unzip the toolchain archive and add the `bin` directory to your `PATH` environment variable or `source` the `environment` script. On windows you can run the `environment.bat` in your existing shell or start a new shell with `start.bat`.
 
 === Toolchain Troubleshooting
 
