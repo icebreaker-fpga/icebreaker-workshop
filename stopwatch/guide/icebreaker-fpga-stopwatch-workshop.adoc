@@ -95,7 +95,8 @@ If you are having trouble with the setup due to internet connectivity the helper
 
 * Check if the device is being detected by the kernel with 'lsusb' it will
   either show up as a Future Electronics device or the name of the programmer
-  vendor.
+  vendor.  (Be sure to use the system version of 'lsusb', __e.g.,__ '/usr/bin/lsusb'.
+  The OSS CAD Suite ships its own version which is not as verbose.)
 * If the device is being detected by the kernel you might not have permissions
   to access the device. If you run `sudo iceprog ...` and the device is
   decected you can give yourself permissions by creating a udev file at:
